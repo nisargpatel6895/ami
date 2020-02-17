@@ -8,7 +8,10 @@ jobs:
       - checkout # checkout source code to working directory
       - run:
           name: Install packages
-          command: sudo apt-get update && sudo apt-get install wget zip unzip -y
+          command: | 
+            apt-get install sudo
+            sudo apt-get update
+            sudo apt-get install wget zip unzip -y
       - run:
           name: download packer
           command: |
