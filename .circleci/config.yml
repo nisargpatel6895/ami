@@ -1,0 +1,36 @@
+---
+version: 2
+jobs:
+  build:
+    docker:
+      - image: HashiCorp/packer:1.5.4
+    steps:
+      - checkout # checkout source code to working directory
+      - run:
+          name: download packer
+          command: |
+            sudo wget -q https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_linux_amd64.zip 
+            sudo unzip packer*.zip  
+            chmod +x packer
+      - run:
+          name: Validate Packer Template
+          command: ./packer validate ubuntu-ami.json
+      - run:
+          name: Build AMI
+          command: |
+            ./packer build \
+            -var "aws_region=${AWS_REGION}" \
+            -var "aws_access_key=${AWS_ACCESS_KEY_ID}" \
+            -var "aws_secret_key=${AWS_SECRET_ACCESS_KEY}" \
+            -var "source_ami=${SOURCE_AMI}" \
+            -var "subnet_id=${SUBNET_ID}" \
+            ubuntu-ami.json
+
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
