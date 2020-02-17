@@ -8,7 +8,14 @@ jobs:
       - checkout
       - run:
           name: Validate base
-          command: packer validate ./ubuntu-ami.json
+          command: |
+            packer validate \
+            -var "aws_region=${AWS_REGION}" \
+            -var "aws_access_key=${AWS_ACCESS_KEY_ID}" \
+            -var "aws_secret_key=${AWS_SECRET_ACCESS_KEY}" \
+            -var "source_ami=${SOURCE_AMI}" \
+            -var "subnet_id=${SUBNET_ID}" \
+            ubuntu-ami.json
 workflows:
   version: 2
   build_deploy:
