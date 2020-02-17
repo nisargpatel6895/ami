@@ -7,10 +7,13 @@ jobs:
     steps:
       - checkout # checkout source code to working directory
       - run:
+          name: Install packages
+          command: sudo apt-get update && sudo apt-get install wget zip unzip -y
+      - run:
           name: download packer
           command: |
-            sudo wget -q https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_linux_amd64.zip 
-            sudo unzip packer*.zip  
+            wget -q https://releases.hashicorp.com/packer/1.3.4/packer_1.3.4_linux_amd64.zip 
+            unzip packer*.zip  
             chmod +x packer
       - run:
           name: Validate Packer Template
