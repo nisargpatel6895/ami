@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: HashiCorp/packer:1.5.4
+      - image: hashicorp/packer:1.5.4
     steps:
       - checkout # checkout source code to working directory
       - run:
