@@ -6,7 +6,7 @@
         "subnet_id": "",
         "source_ami": "",
         "ssh_username": "ubuntu",
-        "ami_users": "330036070493,386893662485"
+        "ami_users": ""
     },
     "builders": [
         {
@@ -20,7 +20,7 @@
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
             "ami_description": "Ubuntu AMI",
-            "ami_users": "{{ user `ami_users`}}",
+            "ami_users": "{{user `ami_users`}}",
             "launch_block_device_mappings": [
                 {
                     "device_name": "/dev/sda1",
