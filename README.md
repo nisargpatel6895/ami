@@ -1,4 +1,4 @@
-# ami
+# ami image
 
 - A new user circleci is created in AWS IAM services.
 - Using circleci access key and secret key we build AMI Image in AWS by configurations mentioned in ubuntu-ami.json
