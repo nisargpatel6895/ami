@@ -43,8 +43,10 @@
                 "sudo curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -",
                 "sudo apt-get install nodejs -y",
                 "sudo pip install awscli",
-                "sudo wget https://s3.amazonaws.com/amazoncloudwatch-agent/centos/amd64/latest/amazon-cloudwatch-agent.rpm",
-                "sudo rpm -U ./amazon-cloudwatch-agent.rpm"
+                "sudo apt-get install ruby -y",
+                "sudo wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install",
+                "sudo chmod +x ./install",
+                "sudo ./install auto"
             ]
         }
     ]
