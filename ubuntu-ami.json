@@ -43,13 +43,6 @@
                 "sudo curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -",
                 "sudo apt-get install nodejs -y",
                 "sudo pip install awscli",
-                "sudo cd /home/ubuntu/",
-                "sudo wget https://aws-codedeploy-us-east-1.s3.amazonaws.com/latest/install",
-                "sudo chmod +x ./install",
-                "sudo ./install auto",
-                "sudo service codedeploy-agent status",
-                "sudo service codedeploy-agent start",
-                "sudo service codedeploy-agent status",
                 "sudo wget https://s3.amazonaws.com/amazoncloudwatch-agent/centos/amd64/latest/amazon-cloudwatch-agent.rpm",
                 "sudo rpm -U ./amazon-cloudwatch-agent.rpm"
             ]
